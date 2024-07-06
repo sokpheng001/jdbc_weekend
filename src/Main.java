@@ -1,15 +1,14 @@
-import model.Product;
-import repository.ProductRepository;
+import model.User;
 import repository.ProductRepositoryImpl;
+import repository.UserRepository;
+import repository.UserRepositoryImpl;
+import view.UI;
 
-import java.math.BigDecimal;
-import java.sql.Date;
-import java.time.LocalDate;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        new ProductRepositoryImpl()
-                .insertNewProduct(
-                        new Product(4,"មីគោក", Date.valueOf(LocalDate.now()),new BigDecimal("4.5")));
+
+        UI.home();
     }
 }

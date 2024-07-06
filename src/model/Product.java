@@ -7,6 +7,7 @@ import lombok.ToString;
 
 import java.math.BigDecimal;
 import java.sql.Date;
+import java.util.List;
 
 @Data
 @ToString
@@ -17,4 +18,6 @@ public class Product {
     private String productName;
     private Date releasedDate;
     private BigDecimal price;
+//    Many to Many
+    List<Order> orderList;
 }
