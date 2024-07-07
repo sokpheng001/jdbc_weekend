@@ -1,6 +1,6 @@
-package repository;
+package repository.product;
 
-import model.Product;
+import model.product.Product;
 import java.util.List;
 
 public interface ProductRepository {

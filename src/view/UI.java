@@ -1,14 +1,14 @@
 package view;
 
-import model.Product;
-import model.User;
+import model.product.Product;
+import model.user.User;
 import org.nocrala.tools.texttablefmt.BorderStyle;
 import org.nocrala.tools.texttablefmt.CellStyle;
 import org.nocrala.tools.texttablefmt.ShownBorders;
 import org.nocrala.tools.texttablefmt.Table;
-import repository.ProductRepository;
-import repository.ProductRepositoryImpl;
-import repository.UserRepositoryImpl;
+import repository.product.ProductRepository;
+import repository.product.ProductRepositoryImpl;
+import repository.user.UserRepositoryImpl;
 
 
 import java.util.Scanner;

@@ -1,9 +1,12 @@
-package model;
+package model.product;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import model.order.Order;
+
+import java.math.BigDecimal;
 import java.sql.Date;
 import java.util.List;
 
@@ -11,12 +14,11 @@ import java.util.List;
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
-public class Order {
+public class Product {
     private Integer id;
-    private String orderName;
-    private Date orderDate;
-    // Many to one, one order can be belonged to one user
-    private User user;
+    private String productName;
+    private Date releasedDate;
+    private BigDecimal price;
 //    Many to Many
-    List<Product> productList;
+    List<Order> orderList;
 }

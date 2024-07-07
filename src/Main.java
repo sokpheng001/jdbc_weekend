@@ -1,14 +1,10 @@
-import model.User;
-import repository.ProductRepositoryImpl;
-import repository.UserRepository;
-import repository.UserRepositoryImpl;
-import view.UI;
 
-import java.util.Scanner;
+import repository.order.OrderRepositoryImpl;
 
 public class Main {
     public static void main(String[] args) {
-
-        UI.home();
+        new OrderRepositoryImpl()
+                .userOrder()
+                .forEach(System.out::println);
     }
 }

@@ -1,7 +1,7 @@
-package repository;
+package repository.user;
 
-import model.UpdateUserDto;
-import model.User;
+import model.user.UpdateUserDto;
+import model.user.User;
 import utils.DBConnection;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -131,6 +131,58 @@ public class UserRepositoryImpl implements UserRepository{
 
         }catch (Exception exception){
             System.out.println("Problem during get user by ID: " + exception.getMessage());
+        }
+        return 0;
+    }
+
+    @Override
+    public int insertNewUser(User user) {
+        String sql = """
+                INSERT INTO "users"
+                VALUES(?,?,?,?)
+                """;
+        try(
+                Connection connection = DBConnection.connection();
+                PreparedStatement preparedStatement  =connection.prepareStatement(sql);
+                ){
+            preparedStatement.setInt(1,user.getId());
+            preparedStatement.setString(2,user.getUserName());
+            preparedStatement.setString(3,user.getEmail());
+            preparedStatement.setString(4,user.getPassword());
+             int rowAffected = preparedStatement.executeUpdate();
+             if(rowAffected>0){
+                 System.out.println("Insert new user successfully");
+                 return rowAffected;
+             }else {
+                 System.out.println("Insert new User failed");
+             }
+        }catch (Exception exception){
+            System.out.println("Problem during insert new User: " + exception.getMessage());
+        }
+        return 0;
+    }
+
+    @Override
+    public int deleteUserById(int id) {
+        String sql = """
+                DELETE FROM "users"
+                WHERE id = ?
+                """;
+        try(
+                Connection connection = DBConnection.connection();
+                PreparedStatement preparedStatement  = connection.prepareStatement(sql);
+                ){
+            preparedStatement.setInt(1,id);
+            int rowAffected = preparedStatement.executeUpdate();
+            if(rowAffected>0){
+                System.out.println("Delete user successfully");
+                return rowAffected;
+            }else {
+                System.out.println("Delete user failed");
+            }
+
+        }catch (Exception exception){
+            System.out.println(exception.getMessage());
         }
         return 0;
     }

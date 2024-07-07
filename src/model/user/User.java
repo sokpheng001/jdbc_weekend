@@ -1,9 +1,10 @@
-package model;
+package model.user;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import model.order.Order;
 
 import java.util.List;
 
